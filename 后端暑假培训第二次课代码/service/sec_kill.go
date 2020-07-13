@@ -121,7 +121,7 @@ func (item *Item) SalesGoods() {
 		}
 	}
 }
-
+//当关闭通道后可以读出信息满足case
 func (item *Item) Done() <-chan struct{} {
 	if item.done == nil {
 		item.done = make(chan struct{})
@@ -129,7 +129,7 @@ func (item *Item) Done() <-chan struct{} {
 	d := item.done
 	return d
 }
-
+//监控请求
 func (item *Item) Monitor() {
 	go item.SalesGoods()
 }
@@ -145,7 +145,7 @@ func (item *Item) GetLeft() int {
 func (item *Item) BuyGoods(num int) {
 	item.sellCh <- num
 }
-
+//开启服务
 func InitService() {
 	go InitMap()
 	for _, item := range ItemMap {

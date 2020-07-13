@@ -7,7 +7,7 @@ import (
 )
 
 var DB *gorm.DB
-
+//连接数据库
 func InitDB()  {
 	var err error
 	db, err := gorm.Open("mysql","mysql","root:@tcp(127.0.0.1:3306)/summer_course?parseTime=true&charset=utf8&loc=Local")
